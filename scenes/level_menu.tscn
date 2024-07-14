@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://drcasvqsmy0g7"]
+
+[ext_resource type="Script" path="res://scenes/level_menu.gd" id="1_8swns"]
+[ext_resource type="Texture2D" uid="uid://cf6hbmbbdhtqs" path="res://icon.svg" id="2_i2g25"]
+
+[node name="level_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8swns")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.5
+offset_top = -82.0
+offset_right = 120.5
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="1FLOORF" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+text = "1 FLOOR"
+icon = ExtResource("2_i2g25")
+icon_alignment = 2
+expand_icon = true
+
+[node name="2FLOORS" type="Button" parent="VBoxContainer"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+text = "2 FLOOR"
+icon = ExtResource("2_i2g25")
+expand_icon = true
+
+[node name="3FLOORT" type="Button" parent="VBoxContainer"]
+modulate = Color(0.537255, 0, 1, 1)
+layout_mode = 2
+text = "3 FLOOR"
+icon = ExtResource("2_i2g25")
+icon_alignment = 2
+expand_icon = true
+
+[node name="4FLOORFO" type="Button" parent="VBoxContainer"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+text = "4 FLOOR"
+icon = ExtResource("2_i2g25")
+expand_icon = true
+
+[node name="5FLOORFI" type="Button" parent="VBoxContainer"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 2
+text = "5 FLOOR"
+icon = ExtResource("2_i2g25")
+icon_alignment = 2
+expand_icon = true
+
+[connection signal="pressed" from="VBoxContainer/1FLOORF" to="." method="_on_floorf_pressed"]
+[connection signal="pressed" from="VBoxContainer/2FLOORS" to="." method="_on_floors_pressed"]
+[connection signal="pressed" from="VBoxContainer/3FLOORT" to="." method="_on_floort_pressed"]
+[connection signal="pressed" from="VBoxContainer/4FLOORFO" to="." method="_on_floorfo_pressed"]
+[connection signal="pressed" from="VBoxContainer/5FLOORFI" to="." method="_on_floorfi_pressed"]

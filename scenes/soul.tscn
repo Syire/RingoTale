@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdbjdmmatuwnd"]
+
+[ext_resource type="Script" path="res://Soul.gd" id="1_2scej"]
+[ext_resource type="Texture2D" uid="uid://dlkmk42i04hnc" path="res://image/soul.png" id="2_ytyxk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8fbk"]
+size = Vector2(6, 6)
+
+[node name="Soul" type="CharacterBody2D" groups=["soul"]]
+script = ExtResource("1_2scej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ytyxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l8fbk")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

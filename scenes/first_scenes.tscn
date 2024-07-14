@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://cptsf2gmi4bb"]
+
+[ext_resource type="Script" path="res://script/first_scenes.gd" id="1_f7i58"]
+[ext_resource type="Texture2D" uid="uid://bh3e6pytwdtn1" path="res://image/logo.jpg" id="2_tp6cq"]
+
+[sub_resource type="Animation" id="Animation_1v32a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_tp6cq")]
+}
+
+[sub_resource type="Animation" id="Animation_3jaxr"]
+resource_name = "first_scenes"
+length = 0.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.117647), Color(1, 1, 1, 0.278431), Color(1, 1, 1, 0.337255), Color(1, 1, 1, 0.52549), Color(1, 1, 1, 0.698039), Color(1, 1, 1, 0.823529), Color(1, 1, 1, 0.964706), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_tp6cq")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjlx6"]
+_data = {
+"RESET": SubResource("Animation_1v32a"),
+"first_scenes": SubResource("Animation_3jaxr")
+}
+
+[node name="ColorRect" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_f7i58")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(260, 155)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_tp6cq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_jjlx6")
+}
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

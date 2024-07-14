@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6pn3hleo55ok"
+path="res://.godot/imported/Floweys Face off2.mp3-c71ab0e3791f570ccdaed07bafdaeb25.mp3str"
+
+[deps]
+
+source_file="res://music/Floweys Face off2.mp3"
+dest_files=["res://.godot/imported/Floweys Face off2.mp3-c71ab0e3791f570ccdaed07bafdaeb25.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

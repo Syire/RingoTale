@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://i3266kjg2rh1"]
+
+[ext_resource type="Script" path="res://scenes/spawn.gd" id="1_ln0bs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ee3j"]
+
+[sub_resource type="Gradient" id="Gradient_rcvp6"]
+offsets = PackedFloat32Array(0.525581, 1)
+colors = PackedColorArray(0.141176, 0.882353, 0.423529, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_32lva"]
+gradient = SubResource("Gradient_rcvp6")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_sxg75"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m83qv"]
+resource_name = "spawn"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvuw2"]
+_data = {
+"RESET": SubResource("Animation_sxg75"),
+"spawn": SubResource("Animation_m83qv")
+}
+
+[node name="spawn" type="Marker2D"]
+script = ExtResource("1_ln0bs")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(10, 10)
+mesh = SubResource("SphereMesh_4ee3j")
+texture = SubResource("GradientTexture2D_32lva")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hvuw2")
+}

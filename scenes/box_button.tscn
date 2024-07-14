@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://btlgsvcsa52y3"]
+
+[ext_resource type="Texture2D" uid="uid://d1q7hj20t6k7o" path="res://image/box.png" id="1_kthvh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpxrg"]
+size = Vector2(4.025, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qogx"]
+size = Vector2(520, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5leug"]
+size = Vector2(520, 3)
+
+[node name="BoxBUTTON" type="Control"]
+show_behind_parent = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+size_flags_horizontal = 2
+
+[node name="Sprite2D" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 520.0
+offset_bottom = 80.0
+texture = ExtResource("1_kthvh")
+region_rect = Rect2(4.9, 4.5, 12.2, 13)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.9875, 40)
+shape = SubResource("RectangleShape2D_cpxrg")
+
+[node name="right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(518, 40)
+shape = SubResource("RectangleShape2D_cpxrg")
+
+[node name="top" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(260, 21)
+shape = SubResource("RectangleShape2D_7qogx")
+
+[node name="bottom" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(260, 78)
+shape = SubResource("RectangleShape2D_5leug")

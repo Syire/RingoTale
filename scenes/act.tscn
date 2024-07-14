@@ -1,0 +1,116 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5istx0etpnna"]
+
+[ext_resource type="Script" path="res://scenes/act.gd" id="1_4evcr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pgdx"]
+size = Vector2(214.5, 8.98876)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t27k"]
+size = Vector2(208, 8.98876)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_750r5"]
+size = Vector2(138, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcv4x"]
+size = Vector2(175, 8.98877)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k8lkv"]
+size = Vector2(60, 9.54494)
+
+[node name="act" type="Node2D"]
+script = ExtResource("1_4evcr")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+offset_right = 572.0
+offset_bottom = 50.0
+scale = Vector2(0.89, 0.89)
+columns = 3
+
+[node name="Label" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Canti la canzone  Ringo Star"
+
+[node name="Area2Dfirst" type="Area2D" parent="GridContainer/Label"]
+
+[node name="1" type="CollisionShape2D" parent="GridContainer/Label/Area2Dfirst"]
+position = Vector2(106.75, 13.4831)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7pgdx")
+disabled = true
+
+[node name="Label2" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Provi a togliergli gli occhiali"
+horizontal_alignment = 2
+
+[node name="Area2Dsecond" type="Area2D" parent="GridContainer/Label2"]
+
+[node name="2" type="CollisionShape2D" parent="GridContainer/Label2/Area2Dsecond"]
+position = Vector2(105, 13.4831)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2t27k")
+disabled = true
+debug_color = Color(0.882353, 0, 0.819608, 0.419608)
+
+[node name="Label3" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "NOOT NOOOOOT!"
+
+[node name="Area2Dthird" type="Area2D" parent="GridContainer/Label3"]
+
+[node name="3" type="CollisionShape2D" parent="GridContainer/Label3/Area2Dthird"]
+position = Vector2(70, 12)
+shape = SubResource("RectangleShape2D_750r5")
+disabled = true
+debug_color = Color(0, 0.643137, 0.282353, 0.419608)
+
+[node name="Label4" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "Gli chiedi un autografo"
+
+[node name="Area2Dfourth" type="Area2D" parent="GridContainer/Label4"]
+
+[node name="4" type="CollisionShape2D" parent="GridContainer/Label4/Area2Dfourth"]
+position = Vector2(87.5, 13.4494)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hcv4x")
+disabled = true
+debug_color = Color(0.921569, 0.282353, 0, 0.419608)
+
+[node name="Label5" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "             Indietro
+"
+
+[node name="Area2DFifth" type="Area2D" parent="GridContainer/Label5"]
+position = Vector2(29, 13)
+
+[node name="5" type="CollisionShape2D" parent="GridContainer/Label5/Area2DFifth"]
+position = Vector2(56, 0.727531)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_k8lkv")
+disabled = true
+debug_color = Color(0.980392, 0, 0.376471, 0.419608)
+
+[node name="Label" type="Label" parent="."]
+offset_right = 520.0
+offset_bottom = 57.0
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerAct" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="GridContainer/Label/Area2Dfirst" to="." method="_on_area_2_dfirst_body_entered"]
+[connection signal="body_exited" from="GridContainer/Label/Area2Dfirst" to="." method="_on_area_2_dfirst_body_exited"]
+[connection signal="body_entered" from="GridContainer/Label2/Area2Dsecond" to="." method="_on_area_2_dsecond_body_entered"]
+[connection signal="body_exited" from="GridContainer/Label2/Area2Dsecond" to="." method="_on_area_2_dsecond_body_exited"]
+[connection signal="body_entered" from="GridContainer/Label3/Area2Dthird" to="." method="_on_area_2_dthird_body_entered"]
+[connection signal="body_exited" from="GridContainer/Label3/Area2Dthird" to="." method="_on_area_2_dthird_body_exited"]
+[connection signal="body_entered" from="GridContainer/Label4/Area2Dfourth" to="." method="_on_area_2_dfourth_body_entered"]
+[connection signal="body_exited" from="GridContainer/Label4/Area2Dfourth" to="." method="_on_area_2_dfourth_body_exited"]
+[connection signal="body_entered" from="GridContainer/Label5/Area2DFifth" to="." method="_on_area_2d_fifth_body_entered"]
+[connection signal="body_exited" from="GridContainer/Label5/Area2DFifth" to="." method="_on_area_2d_fifth_body_exited"]
+[connection signal="timeout" from="TimerAct" to="." method="_on_timer_timeout"]

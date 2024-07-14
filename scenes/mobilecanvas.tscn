@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm41y5oap75tw"]
+
+[ext_resource type="Texture2D" uid="uid://dxj8tme6ivkkp" path="res://image/right.png" id="1_450on"]
+[ext_resource type="Texture2D" uid="uid://vd6rvtnlqcp8" path="res://image/left.png" id="2_l1k8s"]
+[ext_resource type="Texture2D" uid="uid://nqi1hbcn8bn3" path="res://image/up.png" id="3_rs7cq"]
+[ext_resource type="Texture2D" uid="uid://dhawo2cpqwkqo" path="res://image/attack.png" id="4_okkl4"]
+
+[node name="mobilecanvas" type="CanvasLayer"]
+
+[node name="right" type="TouchScreenButton" parent="."]
+position = Vector2(68, 247)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("1_450on")
+passby_press = true
+action = "move_right"
+
+[node name="left" type="TouchScreenButton" parent="."]
+position = Vector2(14, 248)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("2_l1k8s")
+passby_press = true
+action = "move_left"
+
+[node name="up" type="TouchScreenButton" parent="."]
+position = Vector2(453, 218)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("3_rs7cq")
+passby_press = true
+action = "move_jump"
+
+[node name="attack" type="TouchScreenButton" parent="."]
+position = Vector2(388, 249)
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("4_okkl4")
+passby_press = true
+action = "move_attack"

@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://bxe5ixbc2lfao"]
+
+[ext_resource type="Texture2D" uid="uid://bo1t566ve6dnx" path="res://Nuova cartella/spr_act0.png" id="1_5j3wx"]
+[ext_resource type="Script" path="res://scenes/button.gd" id="1_e6xww"]
+[ext_resource type="Texture2D" uid="uid://bqjofy3jhfg0" path="res://Nuova cartella/spr_act1.png" id="2_8rhf2"]
+[ext_resource type="Texture2D" uid="uid://mdl02oh5rcdf" path="res://Nuova cartella/spr_fight0.png" id="3_f7n3q"]
+[ext_resource type="Texture2D" uid="uid://chh2lglxglvrr" path="res://Nuova cartella/spr_fight1.png" id="4_m02wo"]
+[ext_resource type="Texture2D" uid="uid://carmd6v0h2agi" path="res://Nuova cartella/spr_item0.png" id="5_pm62x"]
+[ext_resource type="Texture2D" uid="uid://m4fm2lur64xt" path="res://Nuova cartella/spr_item1.png" id="6_u2bjf"]
+[ext_resource type="Texture2D" uid="uid://cd5l2x8a8xera" path="res://Nuova cartella/spr_mercy0.png" id="7_720m2"]
+[ext_resource type="Texture2D" uid="uid://cy7367xadpmat" path="res://Nuova cartella/spr_mercy1.png" id="8_675vw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2doaf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5j3wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8rhf2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52ulw"]
+size = Vector2(110, 42.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h8hj4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f7n3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m02wo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3k7y"]
+size = Vector2(110.625, 41.875)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oce6t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pm62x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u2bjf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iey2w"]
+size = Vector2(110, 42.5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2be8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_720m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_675vw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2byo"]
+size = Vector2(110, 42.5)
+
+[node name="Button" type="Node2D"]
+script = ExtResource("1_e6xww")
+
+[node name="ACT" type="AnimatedSprite2D" parent="."]
+position = Vector2(195, 245)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_2doaf")
+
+[node name="AreaAct" type="Area2D" parent="ACT"]
+
+[node name="act" type="CollisionShape2D" parent="ACT/AreaAct"]
+shape = SubResource("RectangleShape2D_52ulw")
+
+[node name="FIGHT" type="AnimatedSprite2D" parent="."]
+position = Vector2(70, 245)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_h8hj4")
+
+[node name="AreaFight" type="Area2D" parent="FIGHT"]
+
+[node name="fight" type="CollisionShape2D" parent="FIGHT/AreaFight"]
+position = Vector2(-0.3125, 0.3125)
+shape = SubResource("RectangleShape2D_i3k7y")
+debug_color = Color(0.670588, 0, 0, 0.419608)
+
+[node name="ITEM" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 245)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_oce6t")
+
+[node name="AreaItem" type="Area2D" parent="ITEM"]
+
+[node name="item" type="CollisionShape2D" parent="ITEM/AreaItem"]
+shape = SubResource("RectangleShape2D_iey2w")
+debug_color = Color(0.694118, 1, 0, 0.419608)
+
+[node name="MERCY" type="AnimatedSprite2D" parent="."]
+position = Vector2(445, 245)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_2be8f")
+
+[node name="AreaMercy" type="Area2D" parent="MERCY"]
+
+[node name="mercy" type="CollisionShape2D" parent="MERCY/AreaMercy"]
+shape = SubResource("RectangleShape2D_m2byo")
+debug_color = Color(0, 1, 0, 0.419608)
+
+[node name="Timerbutton" type="Timer" parent="."]
+
+[connection signal="body_entered" from="ACT/AreaAct" to="." method="_on_area_act_body_entered"]
+[connection signal="body_exited" from="ACT/AreaAct" to="." method="_on_area_act_body_exited"]
+[connection signal="body_entered" from="FIGHT/AreaFight" to="." method="_on_area_fight_body_entered"]
+[connection signal="body_exited" from="FIGHT/AreaFight" to="." method="_on_area_fight_body_exited"]
+[connection signal="body_entered" from="ITEM/AreaItem" to="." method="_on_area_item_body_entered"]
+[connection signal="body_exited" from="ITEM/AreaItem" to="." method="_on_area_item_body_exited"]
+[connection signal="body_entered" from="MERCY/AreaMercy" to="." method="_on_area_mercy_body_entered"]
+[connection signal="body_exited" from="MERCY/AreaMercy" to="." method="_on_area_mercy_body_exited"]
+[connection signal="timeout" from="Timerbutton" to="." method="_on_timer_timeout"]

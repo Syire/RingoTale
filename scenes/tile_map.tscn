@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhsu6u15f415e"]
+
+[ext_resource type="TileSet" uid="uid://bq2e1rcxggb1y" path="res://image/default_tileset.tres" id="1_rusqo"]
+
+[node name="TileMap" type="TileMap"]
+position = Vector2(1, 0)
+tile_set = ExtResource("1_rusqo")
+cell_quadrant_size = 15
+format = 2

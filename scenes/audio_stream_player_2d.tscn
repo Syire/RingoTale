@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b26g3i3o2flat"]
+
+[ext_resource type="AudioStream" uid="uid://b6pn3hleo55ok" path="res://music/Floweys Face off2.mp3" id="1_aiw3v"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_aiw3v")
+max_distance = 20000.0
