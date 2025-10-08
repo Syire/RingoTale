@@ -1,4 +1,20 @@
-# RingoTale
+# 🎮 RingoTale
+
+**RingoTale** è un gioco sviluppato con **Godot Engine** come progetto per l’esame di maturità.  
+Il gioco offre un’esperienza dinamica con sistema di dialoghi, gestione nemici e salvataggio dei progressi.
+
+> ⚠️ Nota: grafica e audio sono stati presi da Internet per motivi di tempo.
+
+---
+
+## 🛠️ Tecnologie utilizzate
+
+- **Motore di gioco:** [Godot Engine](https://godotengine.org/)  
+- **Linguaggio principale:** GDScript  
+- **Grafica e audio:** risorse prese da Internet  
+
+---
+
 ![Screenshot 2024-07-14 150755](https://github.com/user-attachments/assets/a89eb94e-c345-4546-96f1-4499d59173e7)
 ![Screenshot 2024-07-14 150823](https://github.com/user-attachments/assets/9b112107-429b-4ad4-a5ab-297b57400642)
 ![Screenshot 2024-07-14 150842](https://github.com/user-attachments/assets/ee357560-4e1b-4a6c-a1b4-d84efca72cf3)
